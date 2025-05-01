@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Alumnos</title>
+    <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Gestión de Alumnos</h1>
+
+        <!-- Paso 1: Alta de Alumno -->
+        <div class="paso" id="paso1">
+            <h2>Alta de Alumno</h2>
+            <input type="text" id="nombre" placeholder="Nombre">
+            <input type="text" id="apellidos" placeholder="Apellidos">
+            <input type="number" id="edad" placeholder="Edad">
+            <button onclick="altaAlumno()">Agregar Alumno</button>
+            <button onclick="siguientePaso(2)">Siguiente</button>
+        </div>
+
+        <!-- Paso 2: Inscribir Materias -->
+        <div class="paso" id="paso2" style="display: none;">
+            <h2>Inscribir Materia</h2>
+            <input type="text" id="nombreInscribir" placeholder="Nombre del Alumno">
+            <select id="materiaSelect">
+                <option value="">Selecciona una materia</option>
+                <option value="Matemáticas">Matemáticas</option>
+                <option value="Historia">Historia</option>
+                <option value="Programación">Programación</option>
+                <option value="Inglés">Inglés</option>
+                <option value="Ciencias">Ciencias</option>
+            </select>
+            <button onclick="inscribirClase()">Inscribir</button>
+            <button onclick="siguientePaso(3)">Siguiente</button>
+        </div>
+
+        <!-- Paso 3: Asignar Calificaciones -->
+        <div class="paso" id="paso3" style="display: none;">
+            <h2>Asignar Calificación</h2>
+            <input type="text" id="nombreCalificar" placeholder="Nombre del Alumno">
+            <button onclick="cargarMaterias()">Cargar Materias</button>
+            <select id="materiaCalificarSelect">
+                <option value="">Selecciona una materia</option>
+            </select>
+            <input type="number" id="calificacion" placeholder="Calificación">
+            <button onclick="asignarCalificacion()">Asignar</button>
+            <button onclick="siguientePaso(4)">Siguiente</button>
+        </div>
+
+        <!-- Paso 4: Crear Grupos -->
+        <div class="paso" id="paso4" style="display: none;">
+            <h2>Crear y Asignar a Grupos</h2>
+            <input type="text" id="nombreGrupo" placeholder="Nombre del Grupo">
+            <button onclick="crearGrupo()">Crear Grupo</button>
+
+            <h3>Asignar Alumno a Grupo</h3>
+            <input type="text" id="nombreAlumnoGrupo" placeholder="Nombre del Alumno">
+            <input type="text" id="grupoAlumno" placeholder="Grupo">
+            <button onclick="asignarAlumnoAGrupo()">Asignar Manual</button>
+
+            <h3>Asignar Automáticamente (FIFO)</h3>
+            <button onclick="asignarPrimerAlumnoAGrupo()">Asignar Automático</button>
+
+            <button onclick="siguientePaso(5)">Siguiente</button>
+        </div>
+
+        <!-- Paso 5: Buscar y Ordenar -->
+        <div class="paso" id="paso5" style="display: none;">
+            <h2>Buscar y Ordenar Alumnos</h2>
+
+            <input type="text" id="buscarNombre" placeholder="Buscar por Nombre">
+            <button onclick="buscarPorNombre()">Buscar</button>
+
+            <input type="text" id="buscarApellido" placeholder="Buscar por Apellido">
+            <button onclick="buscarPorApellido()">Buscar</button>
+
+            <input type="text" id="promedioAlumno" placeholder="Promedio de un Alumno">
+            <button onclick="obtenerPromedioAlumno()">Buscar</button>
+
+            <input type="text" id="promedioGrupo" placeholder="Promedio de un Grupo">
+            <button onclick="obtenerPromedioGrupo()">Buscar</button>
+
+            <h3>Ordenar Alumnos:</h3>
+            <button onclick="ordenarAlumnosAsc()">Ascendente por Calificación</button>
+            <button onclick="ordenarAlumnosDesc()">Descendente por Calificación</button>
+            <button onclick="ordenarPorEdad()">Ordenar por Edad</button>
+
+            <button class="limpiar" onclick="limpiarResultados()">Limpiar Resultados</button>
+
+            <h3>Resultados:</h3>
+            <div id="output"></div>
+
+            <button onclick="siguientePaso(1)">Volver al Inicio</button>
+        </div>
+
+    </div>
+
+    <script src="/assets/script.js"></script>
+</body>
+</html>
